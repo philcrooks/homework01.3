@@ -1,0 +1,94 @@
+SECTION A
+---------
+
+Q. Work out how many stops there are in the current west array
+A. lines.count
+Q. Return 'Edinburgh Park' from the array
+A. lines[1]
+Q. How many ways can we return 'Princes Street' from the array?
+A. lines[4], lines[-1], lines.last, lines[lines.count-1]
+Q. Work out the index position of 'Haymarket'
+A. 3
+Q. Add 'Airport' to the start of the array
+A. lines.unshift('Airport')
+Q. Add 'York Place' to the end of the array
+A. lines.push('York Place')
+Q. Remove 'Edinburgh Park' from the array using it's name
+A. lines.delete('Edinburgh Park')
+Q. Delete 'Edinburgh Park' from the array by index
+A. lines.delete_at(1)
+Q. Reverse the positions of the stops in the array
+A. lines.reverse
+Q. Print out all of the stops using a for loop and a while loop
+A. 
+for station in lines do
+  puts station
+end
+
+c = 0
+while (c < lines.count) do
+  puts lines[c]
+  c += 1
+end
+
+SECTION B
+---------
+
+Q. How would you return the string "One"?
+A. my_hash[1]
+Q. How would you return the string "Two"?
+A. my_hash[:two]
+Q. How would you return the number 2?
+A. my_hash[:two]
+Q. How would you add {3 => "Three"} to the hash?
+A. my_hash[3] = "Three"
+Q. How would you add {:four => 4} to the hash?
+A. my_hash[:four] = 4
+
+SECTION C
+---------
+
+Q. Return Jonathan's Twitter handle (i.e. the string "jonnyt")
+A. users["Jonathan"][:twitter]
+Q. Return Erik's hometown
+A. users["Erik"][:home_town]
+Q. Return the array of Erik's favorite numbers
+A. users["Erik"][:favourite_numbers]
+Q. Return the type of Avril's pet Colin
+A. users["Avril"][:pets]["colin"]
+Q. Return the smallest of Erik's favorite numbers
+A. users["Erik"][:favourite_numbers].sort[0]
+Q. Return an array of Avril's favorite numbers that are even
+A. 
+# easier with an enumerator :-)
+def even_numbers (all_numbers)
+  even_numbers = []
+  for number in all_numbers
+    even_numbers.push(number) if number % 2 == 0
+  end
+  return even_numbers
+end
+
+even_numbers(users["Avril"][:favourite_numbers])
+
+Q. Return an array of Jonathans favourite numbers, sorted in ascending order and excluding duplicates
+A. users["Jonathan"][:favourite_numbers].sort.uniq
+Q. Add the number 7 to Erik's favorite numbers
+A. users["Erik"][:favourite_numbers].push(7).sort!
+Q. Change Erik's hometown to Edinburgh
+A. users["Erik"][:home_town] = "Edinburgh"
+Q. Add a pet dog to Erik called "Fluffy"
+A. users["Erik"][:pets]["Fluffy"] = :dog
+Q. Add yourself to the users hash
+A.
+users["Phil"] = {
+  twitter: "nope",
+  favourite_numbers: [15, 21],
+  home_town: "Edinburgh",
+  pets: {
+    "Lowden" => :acoustic_guitar,
+    "Taylor" => :acoustic_guitar,
+    "Fender" => :electric_guitar,
+    "Gibson" => :electric_guitar
+  }
+}
